@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.30)
+
+set( CMAKE_CXX_COMPILER "C:\\msys64\\ucrt64\\bin\\g++.exe" )
+
+set( CMAKE_C_COMPILER "C:\\msys64\\ucrt64\\bin\\gcc.exe" )
 
 project(contacts)
 
@@ -6,18 +10,10 @@ project(contacts)
 set(CMAKE_CXX_STANDARD 17)
 
 # set Postgresql actual version.
-set(PostgreSQL_ADDITIONAL_VERSIONS "15")
-
-# set for Debian 11 postgresql 14.4 source install version.
-# Commited this three sets for Windows.
-set(PostgreSQL_LIBRARY "/usr/local/pgsql/lib/libpq.so.5.14")
-set(PostgreSQL_INCLUDE_DIR "/usr/local/pgsql/include")
-set(PostgreSQL_TYPE_INCLUDE_DIR "/usr/local/pgsql/include/libpq")
-set(add_config_dir "lib/add_config")
-set(add_exception_dir "")
+set(PostgreSQL_ADDITIONAL_VERSIONS "16")
 
 add_subdirectory(
-	"../libpqxx/libpqxx-7.7.5" libpqxx-build
+	"../libpqxx-7.9.2" libpqxx-build
 )
 add_subdirectory(lib)
 

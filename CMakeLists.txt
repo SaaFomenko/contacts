@@ -15,7 +15,6 @@ set(PostgreSQL_ADDITIONAL_VERSIONS "16")
 add_subdirectory(
 	"../libpqxx-7.9.2" libpqxx-build
 )
-add_subdirectory(lib)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 

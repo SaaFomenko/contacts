@@ -2,6 +2,9 @@
 #include <pqxx/pqxx>
 #include <fstream>
 #include <sstream>
+#include <Windows.h>
+
+#pragma execution_character_set( "utf-8")
 
 
 const std::string file_to_str(const std::string& path_file)
@@ -76,6 +79,11 @@ public:
 
 // Пример использования
 int main() {
+    
+    //setlocale(LC_ALL, "Russian");
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
     try 
     {
         const std::string conn_str = file_to_str("connect.txt");

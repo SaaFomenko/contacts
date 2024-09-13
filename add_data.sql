@@ -9,7 +9,7 @@ INSERT INTO person(name, surname, email) VALUES
 	('Иван', 'Морозов', 'ivan.morozov@gmail.com'),
 	('Татьяна', 'Лебедева', 'tatiana.lebedyeva@yandex.com'),
 	('Павел', 'Ковалев', 'pavel.kovalev@nix.ru');
-INSERT INTO telephone (number, id_person) VALUES 
+INSERT INTO telephone (number, person_id) VALUES 
 	('+7 912 345-67-89', 1),
 	('+7 921 234-56-78', 2),
 	('+7 903 456-78-90', 3),

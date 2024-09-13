@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "iosfwd": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "C:/projects/c++/sql/nlogy/contacts/src/lib/contacts"
 }

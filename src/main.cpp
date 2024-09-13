@@ -1,5 +1,4 @@
 #include <iostream>
-#include <pqxx/pqxx>
 #include <fstream>
 #include <sstream>
 #include <Windows.h>
@@ -94,18 +93,64 @@ int main() {
         db.addData("create_tb.sql");
         db.addData("add_data.sql");
         db.addData("prepare_query.sql");
+
+        enum quest
+        {
+            exit,
+            find,
+            add
+        };
+        int number_quest = 0;
+        bool valid_request = false;
+        do
+        {
+            std::cout << "Здравствуйте, вы получили доступ к базе клиентов." << '\n';
+
+            std::cout << "Обновить или удалить данные клиентов вы сможете в меню "
+                         "\"Найти клиента\"." << '\n';
+
+            std::cout << "1. Найти клиента." << '\n';
+            std::cout << "2. Добавть нового клиента." << '\n';
+            std::cout << "0. Выйти из программы.";
+            std::cout << "Введите номер действия: ";
+            std::cin >> number_quest;
+
+            if (number_quest == quest::exit) return 0;
+
+            valid_request = (
+                number_quest == quest::exit ||
+                number_quest == quest::find 
+            );
+        } while (!valid_request);
+
+        std::string name = "";
+        std::string surname = "";
+        std::string email = "";
+        std::string telephone = "";
+
+        if (number_quest == quest::add)
+        {
+            std::cout << "Имя: ";
+            std::cin >> name;
+            std::cout << "Фамилия: ";
+            std::cin >> surname;
+            std::cout << "Электронная почта: ";
+            std::cin >> email;
+            std::cout << "Телефон: ";
+            std::cin >> telephone;
+        }
  
         // Добавление клиента
         db.addClient("Иван", "Иванов", "ivan@example.com");
  
         // Добавление телефона для клиента
-        db.addPhoneNumber(1, "+123456789");
+        db.addPhoneNumber(11, "+123456789");
  
         // Обновление данных о клиенте
-        db.updateClient(1, "Иван", "Иванов", "ivan_new@example.com");
+        db.updateClient(11, "Иван", "Иванов", "ivan_new@example.com");
  
         // Удаление телефона
-        db.deletePhoneNumber(1, "+123456789");
+        db.deletePhoneNumber(9, "+123456789");
  
         // Удаление клиента
         db.deleteClient(1);
